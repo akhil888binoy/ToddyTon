@@ -41,7 +41,7 @@ function Navbar() {
       <DrawerOverlay />
       <DrawerContent>
         <DrawerHeader >
-          <Heading fontfamily="arial"  textColor={"black"}  >{displayText}</Heading>
+          <Heading fontfamily="arial"    >{displayText}</Heading>
           </DrawerHeader>
         <DrawerBody>
         <HStack alignItems={'flex-start'}>

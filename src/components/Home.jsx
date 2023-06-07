@@ -52,6 +52,7 @@ const Home = () => {
             py="2"
             w={"fit-content"}
             borderBottom={"2px solid"} 
+            colorScheme='red'
             m="auto"
             >About Us</Heading>
             <Stack
@@ -94,10 +95,11 @@ ToddyTon – Where Tradition Meets Taste.
             <Stack
             h='full'
             p='4'
-            alignItems={isMobile ? "center" : "flex-start"}
+            justifyContent={"center"}
+            alignItems={isMobile ? "center" : "center"}
             flexWrap={isMobile ? "wrap" : "nowrap"}
             direction={["column", "row"]} >
-                <HStack>
+                <HStack alignItems={isMobile ? "center" : "center"} flexWrap={isMobile ? "wrap" : "nowrap"}>
                     <Card maxW='sm'>
                     <CardBody>
                         <Image
@@ -106,11 +108,9 @@ ToddyTon – Where Tradition Meets Taste.
                         borderRadius='lg'
                         />
                         <Stack mt='6' spacing='3'>
-                        <Heading size='md'>Living room Sofa</Heading>
+                        <Heading size='md'>Fresh Toddy </Heading>
                         <Text>
-                            This sofa is perfect for modern tropical spaces, baroque inspired
-                            spaces, earthy toned spaces and for people who love a chic design with a
-                            sprinkle of vintage design.
+                        Immerse yourself in the pure delight of our "Kallu" or Fresh Toddy, crafted from the unfermented sap of coconut trees. With its sweet taste and gentle intoxicating essence, it offers a unique and refreshing beverage that is deeply rooted in Kerala's rich cultural heritage. Discover the essence of tradition in every sip.
                         </Text>
                         <Text color='blue.600' fontSize='2xl'>
                             $450
@@ -129,19 +129,17 @@ ToddyTon – Where Tradition Meets Taste.
                         </ButtonGroup>
                     </CardFooter>
                     </Card>
-                    <Card maxW='sm'>
+<Card maxW='sm' >
   <CardBody>
     <Image
       src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
       alt='Green double couch with wooden legs'
       borderRadius='lg'
     />
-    <Stack mt='6' spacing='3'>
-      <Heading size='md'>Living room Sofa</Heading>
+    <Stack mt='6' spacing='3' >
+      <Heading size='md'> Fermented Toddy </Heading>
       <Text>
-        This sofa is perfect for modern tropical spaces, baroque inspired
-        spaces, earthy toned spaces and for people who love a chic design with a
-        sprinkle of vintage design.
+      For those seeking a bolder adventure, our "Kallu Pani" or Fermented Toddy awaits. Through a meticulous fermentation process, it transforms into a spirited elixir, showcasing a higher alcohol content. Perfect for culinary experimentation or creating tantalizing cocktails, Kallu Pani adds a touch of Kerala's essence to any libation.
       </Text>
       <Text color='blue.600' fontSize='2xl'>
         $450
@@ -161,37 +159,7 @@ ToddyTon – Where Tradition Meets Taste.
   </CardFooter>
 </Card>
 
-<Card maxW='sm'>
-  <CardBody>
-    <Image
-      src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-      alt='Green double couch with wooden legs'
-      borderRadius='lg'
-    />
-    <Stack mt='6' spacing='3'>
-      <Heading size='md'>Living room Sofa</Heading>
-      <Text>
-        This sofa is perfect for modern tropical spaces, baroque inspired
-        spaces, earthy toned spaces and for people who love a chic design with a
-        sprinkle of vintage design.
-      </Text>
-      <Text color='blue.600' fontSize='2xl'>
-        $450
-      </Text>
-    </Stack>
-  </CardBody>
-  <Divider />
-  <CardFooter>
-    <ButtonGroup spacing='2'>
-      <Button variant='solid' colorScheme='blue'>
-        Buy now
-      </Button>
-      <Button variant='ghost' colorScheme='blue'>
-        Add to cart
-      </Button>
-    </ButtonGroup>
-  </CardFooter>
-</Card>
+
 
                 </HStack>
 

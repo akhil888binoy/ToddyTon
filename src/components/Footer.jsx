@@ -8,12 +8,15 @@ import { AiOutlineSend } from 'react-icons/ai';
 import { Button } from '@chakra-ui/react';
 import { Input } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react';
+import { useMediaQuery } from '@chakra-ui/react';
 
 const Footer = () => {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
   return (
     <Box bgColor="blackAlpha.900" minH="40" p="16" color="white">
-      <Stack direction={['column', 'row']} spacing="4">
-        <VStack w="full" alignItems={['center', 'flex-start']}>
+      <Stack direction={['column', 'row']} spacing="4" alignItems={isMobile ? "center" : "flex-start"} flexWrap={isMobile ? "wrap" : "nowrap"}>
+        <VStack w="full" alignItems={['center', 'center']}>
           <Heading size="md" textTransform="uppercase" textAlign={['center', 'left']}>
             Subscribe to get updates
           </Heading>

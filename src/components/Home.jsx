@@ -52,7 +52,6 @@ const Home = () => {
             py="2"
             w={"fit-content"}
             borderBottom={"2px solid"} 
-            colorScheme='red'
             m="auto"
             >About Us</Heading>
             <Stack

@@ -11,12 +11,12 @@ import { useState, useEffect } from 'react';
 
 function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [displayText, setDisplayText] = useState('ToddyTon');
+  const [displayText, setDisplayText] = useState('TODDYTON');
 
   useEffect(() => {
     const interval = setInterval(() => {
       // Update the displayText state with the new text
-      setDisplayText(displayText === 'ToddyTon' ? 'കള്ള്Ton' : 'ToddyTon');
+      setDisplayText(displayText === 'TODDYTON' ? 'കള്ള്TON' : 'TODDYTON');
     }, 2000); // Change text every 2 seconds
 
     return () => {
@@ -41,7 +41,7 @@ function Navbar() {
       <DrawerOverlay />
       <DrawerContent>
         <DrawerHeader >
-          <Heading fontfamily="arial"    >{displayText}</Heading>
+          <Heading fontfamily="arial"  >{displayText}</Heading>
           </DrawerHeader>
         <DrawerBody>
         <HStack alignItems={'flex-start'}>

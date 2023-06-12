@@ -90,7 +90,7 @@ ToddyTon – Where Tradition Meets Taste.
             w={"fit-content"}
             borderBottom={"2px solid"} 
             m="auto"
-            >Brewed in ToddyTon</Heading>
+            >Brewed in TODDYTON</Heading>
             <Stack
             h='full'
             p='4'
@@ -164,11 +164,35 @@ ToddyTon – Where Tradition Meets Taste.
 
             </Stack>
         </Container>
+        <Container 
+        minH={"100vh"}  
+        maxW={"container.xl"}
+        p="16">
+            <Heading 
+            textTransform={"uppercase"}
+            py="2"
+            w={"fit-content"}
+            borderBottom={"2px solid"} 
+            m="auto"
+            >How we brew it ?</Heading>
+            <Stack
+            h='full'
+            p='4'
+            alignItems={isMobile ? "center" : "flex-start"}
+            flexWrap={isMobile ? "wrap" : "nowrap"}
+            direction={["column", "row"]} >
+                <Image src={img5} h={["40", "400"]} filter={"hue-rotate(-130deg)"} ></Image>
+                <Text letterSpacing={"widest"} lineHeight={"190%"} p={["4","16"]} textAlign={"center"}>
+                  
+                </Text>
+            </Stack>
+        </Container>
     </Box>
   )
   }
 
 const MyCarousel = ()=>(
+
     <Carousel 
         autoPlay 
         infiniteLoop
@@ -179,7 +203,7 @@ const MyCarousel = ()=>(
         >
             <Box w="full" h={'100vh'}  >
                 <Image src={img1} h="full" w={'full'} objectFit={'cover'}/>
-                <Heading  textColor={"white"} fontSize={"200px"} {...headingOptions}  > ToddyTon </Heading>
+                <Heading  textColor={"white"} fontSize={"200px"} {...headingOptions}> ToddyTon </Heading>
                     <Button backgroundColor={"blackAlpha.600"} textColor={"white"}  {...buttonOptions} > Dive In </Button>
                 
 
@@ -195,7 +219,7 @@ const MyCarousel = ()=>(
                 <Image src={img3}  h="full" w={'full'} objectFit={'cover'}/>
                 <Heading  textColor={"yellow"} fontSize={"200px"} {...headingOptions}  > ToddyTon </Heading>
                     <Button backgroundColor={"blackAlpha.600"} textColor={"white"}  {...buttonOptions} > Dive In </Button>
-                
+                    
             </Box>
     </Carousel>
 );

@@ -17,6 +17,30 @@ import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 import { Divider } from '@chakra-ui/react';
 import { ButtonGroup } from '@chakra-ui/react';
 import { HStack } from '@chakra-ui/react';
+import { useEffect , useState} from 'react';
+import { ScaleFade } from '@chakra-ui/react';
+import {
+  Step,
+  StepDescription,
+  StepIcon,
+  StepIndicator,
+  StepNumber,
+  StepSeparator,
+  StepStatus,
+  StepTitle,
+  Stepper,
+  useSteps,
+} from '@chakra-ui/react'
+
+const steps = [
+  { title: ' Step 1: Tree Tapping', description: 'Skilled toddy tappers climb coconut trees in the lush plantations of Kerala. With expertise and precision, they carefully extract the sap, known as "Kallu," from the coconut flower buds.' },
+  { title: 'Step 2: Collection and Fermentation', description: 'The fresh sap is collected in specially designed containers. It undergoes a natural fermentation process, allowing the flavors to develop and the mild intoxicating effect to emerge.' },
+  { title: 'Step 3: Craftsmanship and Quality', description: 'At Toddyton, we pride ourselves on our craftsmanship. Our dedicated artisans carefully monitor the fermentation process, ensuring the perfect balance of flavors and the highest quality in every bottle.' },
+  { title: 'Step 4: Filtering and Bottling', description: 'Once the fermentation process is complete, the toddy is meticulously filtered to remove impurities while preserving its natural essence. It is then bottled with utmost care, ready to be enjoyed.' },
+  { title: 'Step 5: Authentic Kerala Experience', description: 'With every sip of Toddyton, you are transported to the vibrant culture of Kerala. Experience the authentic flavors that have delighted locals for generations, and immerse yourself in the essence of this beloved traditional beverage.' },
+  { title: 'Step 6: Unforgettable Moments', description: 'Whether you choose our Fresh Toddy or our Fermented Toddy, Toddyton promises to deliver a memorable taste experience. Share moments of joy, celebration, and togetherness with friends and loved ones, making lasting memories with each sip.' },
+]
+
 
 const headingOptions={
     position : "absolute",
@@ -27,6 +51,18 @@ const headingOptions={
     p:"4",
     size:"4x1",
 }
+
+const stepheadingOptions={
+  position : "absolute",
+  left : "50%",
+  top : "30%",
+  transform : "translate(-50%, -50%)",
+  textTransform : "uppercase",
+  p:"4",
+  size:"4x1",
+}
+
+
 const buttonOptions={
     position:"absolute",
     left : "50%",
@@ -37,9 +73,54 @@ const buttonOptions={
     size:"4x1",
 
 }
+const bodyOptions={
+  position:"absolute",
+  left : "50%",
+  top : "50%",
+  transform : "translate(-50%, -50%)",
+  textTransform : "uppercase",
+  p:"4",
+  size:"4x1",
+
+}
+
 const Home = () => {
+
+  const { activeStep } = useSteps({
+    index: 1,
+    count: steps.length,
+  })
+
     const [isMobile] = useMediaQuery("(max-width: 768px)");
+    const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      // Adjust the threshold value to control when the fade should happen
+      const threshold = 3;
+
+      // Calculate the scroll position at which the fade should happen
+      const fadePosition = windowHeight * threshold;
+
+      // Update the isOpen state based on the scroll position
+      setIsOpen(scrollPosition > fadePosition);
+    };
+
+    // Add the scroll event listener when the component mounts
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the scroll event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
   return (
+    
     <Box>
         <MyCarousel>
         </MyCarousel>
@@ -167,6 +248,8 @@ ToddyTon – Where Tradition Meets Taste.
         <Container 
         minH={"100vh"}  
         maxW={"container.xl"}
+        
+        
         p="16">
             <Heading 
             textTransform={"uppercase"}
@@ -178,13 +261,37 @@ ToddyTon – Where Tradition Meets Taste.
             <Stack
             h='full'
             p='4'
-            alignItems={isMobile ? "center" : "flex-start"}
+            alignItems={isMobile ? "center" : "center"}
             flexWrap={isMobile ? "wrap" : "nowrap"}
             direction={["column", "row"]} >
-                <Image src={img5} h={["40", "400"]} filter={"hue-rotate(-130deg)"} ></Image>
-                <Text letterSpacing={"widest"} lineHeight={"190%"} p={["4","16"]} textAlign={"center"}>
-                  
-                </Text>
+  <HStack alignItems={isMobile ? "center" : "center"}
+            flexWrap={isMobile ? "wrap" : "nowrap"} >
+    <Stepper index={activeStep} orientation='vertical' height='200px' gap='7' marginBottom={isMobile ? "1200%" : "400%"}>
+      {steps.map((step, index) => (
+        <Step key={index}>
+          <StepIndicator>
+            <StepStatus
+              complete={<StepIcon />}
+              incomplete={<StepNumber />}
+              active={<StepNumber />}
+            />
+          </StepIndicator>
+          <ScaleFade initialScale={0.9} in={isOpen}>
+          <Box w="full" h={'100vh'} >
+          
+            <Image src={img3}  h="full" w={'full'} objectFit={'fill'} borderRadius={"2xl"}/>
+            <StepTitle  {...stepheadingOptions} textColor="yellow" >{step.title} </StepTitle>
+            <StepDescription  {...bodyOptions} textColor="yellow" backgroundColor="white.alpha600">{step.description}</StepDescription>
+          </Box>
+          </ScaleFade>
+
+          <StepSeparator />
+        </Step>
+      ))}
+    </Stepper>
+              </HStack>
+    
+                
             </Stack>
         </Container>
     </Box>
@@ -223,5 +330,8 @@ const MyCarousel = ()=>(
             </Box>
     </Carousel>
 );
+
+
+
 
 export default Home

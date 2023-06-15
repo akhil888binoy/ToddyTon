@@ -20,6 +20,13 @@ import { HStack } from '@chakra-ui/react';
 import { useEffect , useState} from 'react';
 import { ScaleFade } from '@chakra-ui/react';
 import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+} from '@chakra-ui/react'
+import {
   Step,
   StepDescription,
   StepIcon,
@@ -292,6 +299,66 @@ ToddyTon – Where Tradition Meets Taste.
               </HStack>
     
                 
+            </Stack>
+        </Container>
+        <Container 
+        minH={"100vh"}  
+        maxW={"container.xl"}
+        p="16">
+            <Heading 
+            textTransform={"uppercase"}
+            py="2"
+            w={"fit-content"}
+            borderBottom={"2px solid"} 
+            m="auto"
+            >FAQ</Heading>
+            <Stack
+            h='full'
+            p='4'
+            justifyContent={"center"}
+            alignItems={isMobile ? "center" : "center"}
+            flexWrap={isMobile ? "wrap" : "nowrap"}
+            direction={["column", "row"]} >
+                <HStack alignItems={isMobile ? "center" : "center"} flexWrap={isMobile ? "wrap" : "nowrap"}>
+<Accordion allowToggle>
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box as="span" flex='1' textAlign='left' >
+          Section 1 title
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </AccordionPanel>
+  </AccordionItem>
+
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+        <Box as="span" flex='1' textAlign='left'>
+          Section 2 title
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </AccordionPanel>
+  </AccordionItem>
+</Accordion>
+
+
+                </HStack>
+
             </Stack>
         </Container>
     </Box>

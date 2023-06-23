@@ -1,5 +1,4 @@
-{
-    "faqItems": [
+ [
       {
         "question": "What payment methods do you accept?",
         "answer": "We accept major credit cards, including Visa, Mastercard, and American Express. We also support payment through PayPal."
@@ -25,4 +24,3 @@
         "answer": "You can reach our customer support team by phone at XXX-XXXX-XXXX or by email at support@toddington.com. Our support hours are Monday to Friday, 9am to 5pm EST."
       }
     ]
-  }

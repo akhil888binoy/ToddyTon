@@ -19,6 +19,8 @@ import { ButtonGroup } from '@chakra-ui/react';
 import { HStack } from '@chakra-ui/react';
 import { useEffect , useState} from 'react';
 import { ScaleFade } from '@chakra-ui/react';
+import faqData from '../assets/faq.json';
+
 import {
   Accordion,
   AccordionItem,
@@ -92,6 +94,11 @@ const bodyOptions={
 }
 
 const Home = () => {
+
+  const [faqItems, setFaqItems] = useState([]);
+  useEffect(() => {
+    setFaqItems(faqData);
+  }, []);
 
   const { activeStep } = useSteps({
     index: 1,
@@ -273,7 +280,7 @@ ToddyTon – Where Tradition Meets Taste.
             direction={["column", "row"]} >
   <HStack alignItems={isMobile ? "center" : "center"}
             flexWrap={isMobile ? "wrap" : "nowrap"} >
-    <Stepper index={activeStep} orientation='vertical' height='200px' gap='7' marginBottom={isMobile ? "1200%" : "400%"}>
+    <Stepper index={activeStep} orientation='vertical' height='200px' gap='7' marginBottom={isMobile ? "1200%" : "380%"}>
       {steps.map((step, index) => (
         <Step key={index}>
           <StepIndicator>
@@ -320,43 +327,31 @@ ToddyTon – Where Tradition Meets Taste.
             flexWrap={isMobile ? "wrap" : "nowrap"}
             direction={["column", "row"]} >
                 <HStack alignItems={isMobile ? "center" : "center"} flexWrap={isMobile ? "wrap" : "nowrap"}>
-<Accordion allowToggle>
-  <AccordionItem>
-    <h2>
-      <AccordionButton>
-        <Box as="span" flex='1' textAlign='left' >
-          Section 1 title
-        </Box>
-        <AccordionIcon />
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </AccordionPanel>
-  </AccordionItem>
+    <Card maxW='xl' borderRadius={"3xl"} >
+  <CardBody borderRadius={"3xl"}>
+    <Stack mt='6' spacing='3'>
+    <Accordion allowToggle>
+      {faqItems.map((item, index) => (
+        <AccordionItem key={index}>
+          <h2>
+            <AccordionButton _expanded={{bg:"#3182CE", color:"white"}}>
+              <Box as="span" flex='1' textAlign='left'>
+                {item.question}
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+          </h2>
+          <AccordionPanel pb={4}>
+            {item.answer}
+          </AccordionPanel>
+        </AccordionItem>
+      ))}
+    </Accordion>
 
-  <AccordionItem>
-    <h2>
-      <AccordionButton>
-        <Box as="span" flex='1' textAlign='left'>
-          Section 2 title
-        </Box>
-        <AccordionIcon />
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </AccordionPanel>
-  </AccordionItem>
-</Accordion>
-
-
+     
+    </Stack>
+  </CardBody>
+</Card>
                 </HStack>
 
             </Stack>
